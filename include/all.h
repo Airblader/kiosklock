@@ -3,6 +3,7 @@
 
 #include "externals.h"
 
+#include "types.h"
 #include "globals.h"
 #include "util.h"
 #include "event.h"

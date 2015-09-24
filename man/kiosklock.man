@@ -1,5 +1,5 @@
 kiosklock(1)
-==========
+============
 Ingo Bürk <ingo.buerk@tngtech.com>
 
 == NAME
@@ -8,9 +8,12 @@ kiosklock - X11 lock utility for kiosk-like environments
 
 == SYNOPSIS
 
-kiosklock [-h|--help] [-v|--version]
+kiosklock [-b] [-h|--help] [-v|--version]
 
 == OPTIONS
+
+-b|--background:
+Fork to the background.
 
 -h|--help::
 Display the usage and exit.
