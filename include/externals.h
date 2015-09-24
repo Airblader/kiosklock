@@ -15,3 +15,5 @@
 
 #include <pango/pangocairo.h>
 #include <cairo/cairo-xcb.h>
+
+#include <ev.h>

@@ -6,7 +6,10 @@
 #define __VERSION "unknown"
 #endif
 
+xcb_connection_t *conn;
+
 /* Forward declarations */
+static void run(void);
 static void at_exit_cb(void);
 static void parse_args(int argc, char *argv[]);
 static void print_usage(void);
@@ -14,9 +17,20 @@ static void print_usage(void);
 int main(int argc, char *argv[]) {
     atexit(at_exit_cb);
     parse_args(argc, argv);
+
+    run();
+}
+
+static void run(void) {
+    int screens;
+    conn = xcb_connect(NULL, &screens);
+    if (conn == NULL || xcb_connection_has_error(conn))
+        errx(EXIT_FAILURE, "Failed to connect to X11.\n");
 }
 
 static void at_exit_cb(void) {
+    if (conn != NULL)
+        xcb_disconnect(conn);
 }
 
 static void parse_args(int argc, char *argv[]) {
